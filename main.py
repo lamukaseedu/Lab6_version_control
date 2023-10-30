@@ -25,6 +25,27 @@ def encode(password):
 
     return encoded_password
 
+def decode(password):
+
+    decoded_password = ""
+
+    for item in password:
+        # changing value of each item to int to manipulate values
+        item = int(item)
+
+        # subtracting 3 for decoding
+        item -= 3
+        # if value of number < 0... means value was likely 7, 8, 9... originally & additional code needed to change to original value
+        if item < 0:
+            item += 10
+
+        # changing each item back to a str for final string
+        item = str(item)
+
+        # appending values of int to final string
+        decoded_password += item
+
+    return decoded_password
 
 def main():
     # Code will keep going until the user exits.
